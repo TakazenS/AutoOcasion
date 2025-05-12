@@ -4,7 +4,7 @@ This website is for **educational purposes only** at the moment, it allows you t
 It's actually a **v2** of the same website **programmed in HTML with a Node.Js** backend, but this one is **better**, **optimized** and **powered by PHP** on front-end side.
 
 ## How to run :
-To run this localy you have to download **Docker Desktop**.
+To run this localy you have to download **Docker Desktop** and **Node.Js with npm**.
 
 Do `npm install` in command line **while inside the node folder**, then **go back to the origin of the projet** and run `docker-compose up --build` in command line.
 
