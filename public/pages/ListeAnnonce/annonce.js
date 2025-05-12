@@ -19,15 +19,18 @@ window.addEventListener('DOMContentLoaded', async () => {
         if (!isConnected) {
             // Non connecté : montrer uniquement le bouton connexion
             document.getElementById('dashboard-btn-id').style.display = "none";
+            document.getElementById('deco-btn-id').style.display = "none";
             document.getElementById('connexion-btn-id').style.display = "flex";
         } else if (roleData.isAdmin) {
             // Admin connecté
-            document.getElementById('dashboard-btn-id').style.display = "flex";
             document.getElementById('connexion-btn-id').style.display = "none";
+            document.getElementById('deco-btn-id').style.display = "flex";
+            document.getElementById('dashboard-btn-id').style.display = "flex";
         } else {
             // Utilisateur connecté mais pas admin
             document.getElementById('dashboard-btn-id').style.display = "none";
             document.getElementById('connexion-btn-id').style.display = "none";
+            document.getElementById('deco-btn-id').style.display = "flex";
         }
 
     } catch (err) {
@@ -48,11 +51,11 @@ document.getElementById('dashboard-btn-id').addEventListener('click', async () =
             if (roleData.isAdmin) {
                 window.location.href = '/public/pages/admin/admin.php';
             } else {
-                window.location.href = '/';
+                window.location.href = '/index.php';
                 return window.alert('Vous nêtes pas administrateur !')
             }
         } else {
-                window.location.href = '/';
+                window.location.href = '/index.php';
                 return window.alert("Vous n'êtes pas administrateur !");
         }
 
@@ -77,6 +80,26 @@ document.getElementById('dashboard-btn-id').addEventListener('click', async () =
         }
     } catch (error) {
         console.error("Erreur :", err);
+    }
+});
+
+// Déconnection
+document.getElementById('deco-btn-id').addEventListener('click', async (e) => {
+    e.preventDefault(); // empêche le lien de rediriger immédiatement
+
+    try {
+        const res = await fetch('http://localhost:3000/logout', {
+            method: 'GET',
+            credentials: 'include'
+        });
+
+        if (res.ok) {
+            window.location.href = '/index.php'; // Redirige après déconnexion
+        } else {
+            console.error('Erreur lors de la déconnexion');
+        }
+    } catch (err) {
+        console.error('Erreur réseau pendant la déconnexion', err);
     }
 });
 
@@ -120,23 +143,36 @@ document.getElementById('link-create-ann').addEventListener('click', async (e) =
 // Fonction pour récupérer et afficher les annonces
 async function fetchAnnonces() {
     try {
-        const res = await fetch('http://localhost:3000/get-user-role', {
+        const authRes = await fetch('http://localhost:3000/check-auth', {
             method: 'GET',
-            credentials: 'include' // Inclut les cookies pour vérifier la session
+            credentials: 'include'
         });
 
-        const roleData = await res.json();
-        if (res.ok) {
-            if (roleData.isAdmin) {
-                document.getElementById('connexion-btn-id').style.display = "none";
-                document.getElementById('dashboard-btn-id').style.display = "flex";
-            } else {
-                document.getElementById('dashboard-btn-id').style.display = "none";
-                document.getElementById('connexion-btn-id').style.display = "none";
-            }
+        const isConnected = authRes.ok;
+
+        const roleRes = await fetch('http://localhost:3000/get-user-role', {
+            method: 'GET',
+            credentials: 'include'
+        });
+
+        const roleData = roleRes.ok ? await roleRes.json() : { isAdmin: false };
+
+        // Logique d'affichage unique
+        if (!isConnected) {
+            // Non connecté : montrer uniquement le bouton connexion
+            document.getElementById('dashboard-btn-id').style.display = "none";
+            document.getElementById('deco-btn-id').style.display = "none";
+            document.getElementById('connexion-btn-id').style.display = "flex";
+        } else if (roleData.isAdmin) {
+            // Admin connecté
+            document.getElementById('connexion-btn-id').style.display = "none";
+            document.getElementById('deco-btn-id').style.display = "flex";
+            document.getElementById('dashboard-btn-id').style.display = "flex";
         } else {
-                document.getElementById('dashboard-btn-id').style.display = "none";
-                document.getElementById('connexion-btn-id').style.display = "none";
+            // Utilisateur connecté mais pas admin
+            document.getElementById('dashboard-btn-id').style.display = "none";
+            document.getElementById('connexion-btn-id').style.display = "none";
+            document.getElementById('deco-btn-id').style.display = "flex";
         }
 
         // Récupérez les annonces

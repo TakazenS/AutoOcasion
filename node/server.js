@@ -395,6 +395,12 @@ app.get('/photo/:code_photo', (req, res) => {
     });
 });
 
+// Route de déconnection
+app.get('/logout', (req, res) => {
+    req.session?.destroy?.(); // si tu utilises express-session
+    res.status(200).json({ message: 'Déconnecté' });
+});
+
 // Test de la connexion à la base de données
 connection.connect((err) => {
     if (err) {

@@ -83,6 +83,10 @@ nav a:hover {
     display: flex;
 }
 
+.deco-btn {
+    display: flex;
+}
+
 .link-ceate-ann {
     display: flex;
 }
@@ -125,6 +129,10 @@ nav a:hover {
 
 .create-btn-ann {
     width: 180px;
+}
+
+.deco-btn-ann {
+    width: 150px;
 }
 
 .btn-popup {

@@ -235,6 +235,6 @@
             </div>
         </div>
         <?php include('../includes/footer/footer.php') ?>
-        <script src="/public/pages/FormulaireAnnonce/forms.js" defer></script>
+        <script src="/public/pages/FormulaireAnnonce/forms.js"></script>
     </body>
 </html>
