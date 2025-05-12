@@ -1,0 +1,359 @@
+@font-face {
+    font-family: 'DM_Sans';
+    src: url('/public/fonts/DM\ sans/DMSans-VariableFont_opsz,wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'DM_Sans_Italic';
+    src: url('/public/fonts/DM\ sans/DMSans-Italic-VariableFont_opsz,wght.ttf') format('truetype');
+}
+
+/* Réinitialisation des marges et paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'DM_Sans', sans-serif;
+}
+
+/* Corps de la page */
+body {
+    background-color: #f8f9fa;
+    color: #343a40;
+    font-family: 'DM_Sans', sans-serif;
+    line-height: 1.6;
+}
+
+/* En-tête */
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+/* Section des annonces en attente */
+#pending-annonces {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 1200px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#pending-annonces h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #007bff;
+}
+
+/* Liste des annonces */
+#annonces-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.annonce-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.annonce-item:hover {
+    transform: scale(1.05);
+}
+
+.annonce-item h3 {
+    font-size: 1.5rem;
+    margin: 10px;
+    color: #343a40;
+}
+
+.annonce-item p {
+    margin: 10px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.annonce-item button {
+    margin: 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.approve-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.approve-btn:hover {
+    background-color: #218838;
+}
+
+.reject-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.reject-btn:hover {
+    background-color: #c82333;
+}
+
+.view-details-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.view-details-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Overlay pour afficher les détails de l'annonce */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Contenu de l'annonce complète */
+.full-annonce {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 1200px;
+    max-height: 90%;
+    overflow-y: auto;
+    color: black;
+    position: relative;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Bouton de fermeture */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-btn:hover {
+    background-color: #c82333;
+}
+
+/* Style du carrousel */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.carousel-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-slide.active {
+    display: flex;
+}
+
+.carousel-slide img {
+    max-width: 100%;
+    max-height: 600px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.5rem;
+    border-radius: 50%;
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
+
+/* Titre de l'annonce */
+.titre-annonce {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #007bff;
+}
+
+/* Détails de l'annonce */
+.details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.details p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.details p strong {
+    color: #343a40;
+}
+
+/* Pied de page */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    margin-top: 20px;
+}
+
+/* Style pour les totaux des annonces */
+#total-annonces,
+#total-annonces-attente {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    padding: 15px 20px;
+    max-width: 400px;
+    border-radius: 10px;
+    background-color: #007bff;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#total-annonces:hover,
+#total-annonces-attente:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Icônes pour les totaux */
+.total-icon {
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    color: #007bff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Style pour le bouton "Retour aux annonces" */
+.btn-back {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #28a745; /* Couleur verte */
+    color: white;
+    text-decoration: none; /* Supprime le soulignement */
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-back:hover {
+    background-color: #218838; /* Couleur verte plus foncée au survol */
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-back:active {
+    background-color: #1e7e34; /* Couleur encore plus foncée lors du clic */
+    transform: translateY(0);
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+    width: 25px;                  /* Largeur fixe pour assurer un format carré */
+    height: 25px;                 /* Hauteur fixe pour garder un ratio 1:1 */
+    padding: 3px;                 /* Espace intérieur pour un effet "bordure" autour de l'icône */
+    background-color: #f0f2f5;      /* Fond léger qui peut permettre à l'icône de se détacher sur divers fonds */
+    border-radius: 50%;           /* Crée un cercle parfait; plus simple et efficace que 200px pour chaque coin */
+    box-sizing: border-box;       /* Inclus le padding dans les dimensions globales de l'élément */
+    object-fit: contain;          /* Permet d'ajuster l'image à l'intérieur du conteneur sans déformer l'aspect */
+    display: inline-block;        /* Pour que l'icône se comporte comme un élément en ligne tout en conservant des propriétés de bloc */
+    vertical-align: middle;       /* Aide à aligner l'icône verticalement avec le texte environnant */
+    margin-right: 5px;            /* Optionnel : ajoute un espacement avec le texte qui suit */
+  }
