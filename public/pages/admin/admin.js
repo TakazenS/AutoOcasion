@@ -158,28 +158,25 @@ function showAnnonceDetails(annonce) {
 
             // Générer les détails de l'annonce
             fullAnnonceContent.innerHTML = `
-        <h2 class="titre-annonce">${annonce.marque_vehi.charAt(0).toUpperCase()}${annonce.marque_vehi.substring(1).toLowerCase()} ${annonce.model_vehi}</h2>
+        <h2 class="titre-annonce">${annonce.marque_vehi.charAt(0).toUpperCase()}${annonce.marque_vehi.substring(1).toLowerCase()} ${annonce.model_vehi.toUpperCase()}</h2>
         <p><strong>Prix : </strong>${annonce.prix_vehi} €</p>
         <p><strong>Date d'ajout : </strong><i>${annonce.date_ajout ? new Date(annonce.date_ajout).toLocaleString('fr-FR') : 'Date non disponible'}</i></p>
         <br><br><hr><br><hr><br><br>
         <h3>Détails de l'annonce</h3>
     <div class="details">
-        <p><img class="icon" src="/public/pages/ListeAnnonce/icon/liste-de-controle.png"><strong>Marque</strong><br>${annonce.marque_vehi.charAt(0).toUpperCase()}${annonce.marque_vehi.substring(1).toLowerCase()}</p>
-        <p><img class="icon" src="/public/pages/ListeAnnonce/icon/auto.png"><strong>Modèle</strong><br>${annonce.model_vehi}</p>
-        <p><img class="icon" src="/public/pages/ListeAnnonce/icon/palette-de-couleurs.png"><strong>Couleur</strong><br>${annonce.couleur_vehi.charAt(0).toUpperCase()}${annonce.couleur_vehi.substring(1).toLowerCase()}</p>
-        <p><img class="icon" src="/public/pages/ListeAnnonce/icon/compteur-de-vitesse.png"><strong>Kilométrage du véhicule</strong><br>${annonce.kilometrage_vehi} Km</p>
-        <p><img class="icon" src="/public/pages/ListeAnnonce/icon/boite-de-vitesses.png"><strong>Boîte de vitesse</strong><br>${annonce.boite_vitesse_vehi.charAt(0).toUpperCase()}${annonce.boite_vitesse_vehi.substring(1).toLowerCase()}</p>
-        <p><img class="icon" src="/public/pages/ListeAnnonce/icon/carburant.png"><strong>Carburant</strong><br>${annonce.carburant_vehi.charAt(0).toUpperCase()}${annonce.carburant_vehi.substring(1).toLowerCase()}</p>
-        <p><img class="icon" src="/public/pages/ListeAnnonce/icon/calendrier.png"><strong>Année</strong><br>${annonce.annee_vehi}</p>
-        <p><img class="icon" src="/public/pages/ListeAnnonce/icon/portiere-de-voiture.png"><strong>Nombre de places</strong><br>${annonce.places_vehi}</p>
-        <p><img class="icon" src="/public/pages/ListeAnnonce/icon/portiere-de-voiture.png"><strong>Nombre de portes</strong><br>${annonce.portes_vehi}</p>
-        <p><img class="icon" src="/public/pages/ListeAnnonce/icon/moteur.png"><strong>Puissance fiscale</strong><br>${annonce.puissance_fiscale_vehi} Cv</p>
-        <p><img class="icon" src="/public/pages/ListeAnnonce/icon/moteur.png"><strong>Puissance DIN</strong><br>${annonce.puissance_din_vehi} Kw</p>
-        <p><img class="icon" src="/public/pages/ListeAnnonce/icon/liste-de-controle.png"><strong>Cylindrée</strong><br>PROCHAINEMENT</p>
-        <p><img class="icon" src="/public/pages/ListeAnnonce/icon/liste-de-controle.png"><strong>Crit'Air</strong><br>${annonce.critair_vehi}</p>
-        <p><img class="icon" src="/public/pages/ListeAnnonce/icon/permis-de-conduire.png"><strong>Type de permis</strong><br>${annonce.type_permis.toUpperCase()}</p>
-        <p><img class="icon" src="/public/pages/ListeAnnonce/icon/ville.png"><strong>Ville</strong><br>${annonce.ville_vehi.charAt(0).toUpperCase()}${annonce.ville_vehi.substring(1)}</p>
-        <p><img class="icon" src="/public/pages/ListeAnnonce/icon/ville.png"><strong>Code postal</strong><br>${annonce.codeP_vehi}</p>
+        <p><img class="icon" src="../ListeAnnonce/icon/liste-de-controle.png"><strong>Marque</strong><br>${annonce.marque_vehi.toUpperCase()}</p>
+        <p><img class="icon" src="../ListeAnnonce/icon/auto.png"><strong>Modèle</strong><br>${annonce.model_vehi.toUpperCase()}</p>
+        <p><img class="icon" src="../ListeAnnonce/icon/boite-de-vitesses.png"><strong>Boîte de vitesse</strong><br>${annonce.boite_vitesse_vehi.charAt(0).toUpperCase()}${annonce.boite_vitesse_vehi.substring(1).toLowerCase()}</p>
+        <p><img class="icon" src="../ListeAnnonce/icon/carburant.png"><strong>Carburant</strong><br>${annonce.carburant_vehi.charAt(0).toUpperCase()}${annonce.carburant_vehi.substring(1).toLowerCase()}</p>
+        <p><img class="icon" src="../ListeAnnonce/icon/compteur-de-vitesse.png"><strong>Kilométrage du véhicule</strong><br>${annonce.kilometrage_vehi} Km</p>
+        <p><img class="icon" src="../ListeAnnonce/icon/calendrier.png"><strong>Année</strong><br>${annonce.annee_vehi}</p>
+        <p><img class="icon" src="../ListeAnnonce/icon/permis-de-conduire.png"><strong>Type de permis</strong><br>${annonce.type_permis.toUpperCase()}</p>
+        <p><img class="icon" src="../ListeAnnonce/icon/portiere-de-voiture.png"><strong>Nombre de places</strong><br>${annonce.places_vehi}</p>
+        <p><img class="icon" src="../ListeAnnonce/icon/portiere-de-voiture.png"><strong>Nombre de portes</strong><br>${annonce.portes_vehi}</p>
+        <p><img class="icon" src="../ListeAnnonce/icon/palette-de-couleurs.png"><strong>Couleur</strong><br>${annonce.couleur_vehi.charAt(0).toUpperCase()}${annonce.couleur_vehi.substring(1).toLowerCase()}</p>
+        <p><img class="icon" src="../ListeAnnonce/icon/liste-de-controle.png"><strong>Crit'Air</strong><br>${annonce.critair_vehi}</p>
+        <p><img class="icon" src="../ListeAnnonce/icon/moteur.png"><strong>Puissance fiscale</strong><br>${annonce.puissance_fiscale_vehi} Cv</p>
+        <p><img class="icon" src="../ListeAnnonce/icon/moteur.png"><strong>Puissance DIN</strong><br>${annonce.puissance_din_vehi} Ch</p>
     </div>
         <br><br><hr><br><br>
         <h3>Options :</h3>
@@ -189,10 +186,10 @@ function showAnnonceDetails(annonce) {
         <p>${annonce.description_vehi}</p>
         <br><br><hr><br><br>
         <h3>Contact :</h3><br>
-        <p><img class="icon" src="/public/pages/ListeAnnonce/icon/liste-de-controle.png"><strong>Numéro de téléphone</strong><br>${annonce.numero_telephone}</p><br>
-        <p><img class="icon" src="/public/pages/ListeAnnonce/icon/liste-de-controle.png"><strong>Adresse Mail</strong><br>${annonce.adresse_mail}</p>
-
-            `;
+        <p><img class="icon" src="../ListeAnnonce/icon/liste-de-controle.png"><strong>Adresse Mail : </strong><br>${annonce.adresse_mail}</p>
+        <p><img class="icon" src="../ListeAnnonce/icon/ville.png"><strong>Ville</strong><br>${annonce.ville_vehi.charAt(0).toUpperCase()}${annonce.ville_vehi.substring(1)}</p>
+        <p><img class="icon" src="../ListeAnnonce/icon/ville.png"><strong>Code postal</strong><br>${annonce.codeP_vehi}</p>
+    `;
 
             overlay.style.display = 'flex';
         })

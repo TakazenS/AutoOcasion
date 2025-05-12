@@ -282,7 +282,6 @@ h2.text-center {
     height: 25px;                 /* Hauteur fixe pour garder un ratio 1:1 */
     padding: 3px;                 /* Espace intérieur pour un effet "bordure" autour de l'icône */
     background-color: #f0f2f5;      /* Fond léger qui peut permettre à l'icône de se détacher sur divers fonds */
-    border-radius: 50%;           /* Crée un cercle parfait; plus simple et efficace que 200px pour chaque coin */
     box-sizing: border-box;       /* Inclus le padding dans les dimensions globales de l'élément */
     object-fit: contain;          /* Permet d'ajuster l'image à l'intérieur du conteneur sans déformer l'aspect */
     display: inline-block;        /* Pour que l'icône se comporte comme un élément en ligne tout en conservant des propriétés de bloc */

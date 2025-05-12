@@ -214,10 +214,6 @@
                         <textarea id="description_vehi" name="description_vehi" class="form-textarea" placeholder="Description" rows="3" required></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="numero_telephone">Numéro de téléphone</label>
-                        <input type="tel" id="numero_telephone" name="numero_telephone" class="form-input" placeholder="Ex : +33 6 12 34 56 78" required>
-                    </div>
-                    <div class="form-group">
                         <label for="adresse_mail">Adresse e-mail</label>
                         <input type="email" id="adresse_mail" name="adresse_mail" class="form-input" placeholder="Ex : exemple@email.com" required>
                     </div>
