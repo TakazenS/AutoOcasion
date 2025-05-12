@@ -149,7 +149,7 @@ app.post('/add-annonce', async (req, res) => {
         marque_vehi, model_vehi, boite_vitesse_vehi, carburant_vehi, prix_vehi, annee_vehi, type_permis,
         places_vehi, portes_vehi, couleur_vehi, critair_vehi, puissance_fiscale_vehi,
         puissance_din_vehi, options_vehi, description_vehi, ville_vehi, 
-        codeP_vehi, kilometrage_vehi, type_vehi, adresse_mail
+        codeP_vehi, kilometrage_vehi, adresse_mail
     } = req.body;
 
     if (!model_vehi || !prix_vehi || !description_vehi || !marque_vehi || !ville_vehi) {
@@ -168,14 +168,14 @@ app.post('/add-annonce', async (req, res) => {
             marque_vehi, model_vehi, boite_vitesse_vehi, carburant_vehi, prix_vehi, annee_vehi, type_permis,
             places_vehi, portes_vehi, couleur_vehi, critair_vehi, puissance_fiscale_vehi,
             puissance_din_vehi, options_vehi, description_vehi, ville_vehi,
-            codeP_vehi, kilometrage_vehi, type_vehi, adresse_mail 
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            codeP_vehi, kilometrage_vehi, adresse_mail 
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `;
     const annonceValues = [
         marque_vehi, model_vehi, boite_vitesse_vehi, carburant_vehi, prix_vehi, annee_vehi, type_permis,
         places_vehi, portes_vehi, couleur_vehi, critair_vehi, puissance_fiscale_vehi,
         puissance_din_vehi, options_vehi, description_vehi, ville_vehi, 
-        codeP_vehi, kilometrage_vehi, type_vehi, adresse_mail
+        codeP_vehi, kilometrage_vehi, adresse_mail
     ];
 
     connection.query(insertAnnonceQuery, annonceValues, (annonceErr, annonceResults) => {
@@ -266,9 +266,9 @@ app.delete('/annonce/:id', (req, res) => {
     });
 });
 
-// Route pour récupérer le nombre total d'annonces en attente
+// Affichage du nombre d'annonce en attente
 app.get('/annonces/total-annonces-attente', (req, res) => {
-    if (!req.session.user || !isAdmin) {
+    if (!req.session.user || req.session.user.role !== 'admin') {
         return res.status(403).send('Accès refusé : vous devez être administrateur.');
     }
 

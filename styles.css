@@ -26,7 +26,7 @@ body {
     padding-bottom: 100px;
     padding-top: 60px;
     text-align: center;
-    color: rgb(0, 0, 0);
+    color: black;
     border-bottom: 5px solid #007bff;
     background-color: #f0f2f5;
 }
@@ -96,13 +96,13 @@ body {
 
 .about-content h2 {
     font-size: 2.5rem;
-    color: #333;
+    color: black;
     margin-bottom: 20px;
 }
 
 .about-content p {
     font-size: 1.2rem;
-    color: #555;
+    color: black;
     max-width: 800px;
     margin: 0 auto;
     margin-bottom: 30px;

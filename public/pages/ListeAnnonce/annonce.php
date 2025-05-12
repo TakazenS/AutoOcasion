@@ -21,7 +21,7 @@
                         <div class="full-annonce">
                             <div class="header-full-annonce">
                                 <img class="img-header-fullannonce" src="/public/images/logo.png" alt="logo-header">
-                                <h1>Aut'Occasion</h1>
+                                <h1>AUT'OCASION</h1>
                             </div>
                             <hr>
                                 <button class="close-btn" id="close-btn">&times;</button>

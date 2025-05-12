@@ -146,21 +146,19 @@ body {
     position: absolute;
     top: 10px;
     right: 10px;
-    background-color: #dc3545;
-    color: white;
+    background-color: #e0e0e0;
+    color: black;
     border: none;
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    font-size: 1.2rem;
+    width: 25px;
+    height: 25px;
+    font-size: 16px;
     cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    transition: 0.2s ease-in-out;
 }
 
 .close-btn:hover {
-    background-color: #c82333;
+    background-color: #bebebe;
 }
 
 /* Style du carrousel */
@@ -198,24 +196,36 @@ body {
 
 .carousel-btn {
     position: absolute;
+    width: 28px;
+    height: 100px;
     top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.6);
     color: white;
     border: none;
     padding: 10px;
     cursor: pointer;
     z-index: 10;
-    font-size: 1.5rem;
-    border-radius: 50%;
+    font-size: 18px;
+    backdrop-filter: blur(1px);
+    border-radius: 60px;
+    transition: 0.2s ease-in-out;
 }
 
 .carousel-btn.prev {
-    left: 10px;
+    left: 25px;
+}
+
+.carousel-btn.prev:hover {
+    left: 20px;
 }
 
 .carousel-btn.next {
-    right: 10px;
+    right: -5px;
+}
+
+.carousel-btn.next:hover {
+    right: -10px;
 }
 
 /* Titre de l'annonce */
