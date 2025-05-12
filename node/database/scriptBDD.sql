@@ -30,9 +30,7 @@ CREATE TABLE ANNONCE(
    codeP_vehi VARCHAR(5) NOT NULL,
    date_ajout TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
    kilometrage_vehi BIGINT,
-   type_vehi VARCHAR(30),
    statut ENUM('en attente', 'validée', 'rejetée') DEFAULT 'en attente',
-   numero_telephone VARCHAR(15),
    adresse_mail VARCHAR (60) NOT NULL,
    CONSTRAINT PK_ANNONCE PRIMARY KEY(code_annonce)
 );
