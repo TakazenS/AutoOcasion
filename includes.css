@@ -1,3 +1,5 @@
+/* Header */
+
 header {
     position: relative;
     display: flex;
@@ -73,6 +75,10 @@ nav a:hover {
     display: flex;
 }
 
+.create-btn {
+    display: flex;
+}
+
 .dashboard-btn {
     display: flex;
 }
@@ -106,7 +112,7 @@ nav a:hover {
     border-radius: 6px;
     font-weight: 500;
     color: var(--color);
-    z-index: 1; /* Définit un z-index inférieur à celui de la notification */
+    z-index: 1;
 }
 
 .dashboard-btn-ann {
@@ -115,6 +121,10 @@ nav a:hover {
 
 .connexion-btn-ann {
     width: 130px;
+}
+
+.create-btn-ann {
+    width: 180px;
 }
 
 .btn-popup {
@@ -150,4 +160,52 @@ nav a:hover {
 .btn-ann:active:before {
     background: #000000;
     transition: background 0s;
+}
+
+/* Footer */
+
+.footer-creation-compte {
+    width: 100%;
+    height: 90px;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    color: white;
+    bottom: 0;
+}
+
+.copyright {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 50%;
+}
+
+.copyright p {
+    color: #ffffff;
+    margin-left: 80px;
+}
+
+.legals {
+    text-transform: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 50%;
+}
+
+.legals a {
+    text-decoration: none;
+    color: #ffffff;
+    margin-right: 80px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    text-decoration: none;
+    color: #007bff;
 }

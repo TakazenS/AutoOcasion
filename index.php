@@ -41,15 +41,7 @@
                 </div>
             </section>
         </main>
-        <!-- Footer Section -->
-        <footer>
-            <div class="copyright">
-                <p>Copyright ©2024/2025 Tout droits reservé</p>
-            </div>
-            <div class="legals">
-                <a class="texte_legal" href="/public/pages/MentionLegal/PageMentionLegal.php">Mentions légales</a>
-            </div>
-        </footer>
+        <?php include('./public/pages/includes/footer/footer.php') ?>
         <script src="/script.js"></script>
     </body>
 </html>

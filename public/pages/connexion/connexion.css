@@ -17,90 +17,40 @@
     text-decoration: none;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
 .body {
-    width: 100%;
-    height: 100vh;
+    background-color: #f1f4f7;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .creationCompte {
-    position: relative;
-    display: flex;
-    flex-direction: column;
     width: 100%;
-}
-
-.header-creation-compte {
-    position: relative;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    padding: 20px 0;
-    padding-bottom: 30px;
-    box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.3);
-}
-
-.index-header-link {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 50%;
-}
-
-.index-link {
-    position: relative;
-    display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-top: 10px;
-    margin-left: 80px;
-}
-
-.index-link img {
-    width: 100px;
-    height: auto;
-    margin-right: 10px;
-}
-
-.index-link h1 {
-    font-size: 1.8em;
-}
-
-.annonces-header-link {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    width: 50%;
-    margin-right: 7%;
-}
-
-.annonces-link {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;
-    margin-right: 180px;
-    font-size: 1.1rem;
-    font-weight: 600;
-}
-
-.annonces-link:hover {
-    color: #007bff;
 }
 
 .main-creation-compte {
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    margin-bottom: 55px;
 }
 
 .container-forms {
@@ -231,42 +181,3 @@
     border-color: #666666;
     background: #292929;
 }
-
-.footer-creation-compte {
-    position: fixed;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 90px;
-    bottom: 0px;
-    background-color: black;
-}
-
-.copyright {
-    position: center;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 50%;
-}
-
-.copyright p {
-    color: #ffffff;
-    margin-left: 80px;
-}
-
-.legal-mentions {
-    position: center;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    width: 50%;
-}
-
-.legal-mentions p {
-    color: #ffffff;
-    margin-right: 80px;
-}
-

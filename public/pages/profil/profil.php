@@ -11,5 +11,6 @@
     </head>
     <body>
         
+        <?php include('../includes/footer/footer.php') ?>
     </body>
 </html>

@@ -22,76 +22,6 @@
     height: 100vh;
 }
 
-.creationCompte {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.header-creation-compte {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    padding: 20px 0;
-    padding-bottom: 30px;
-    box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.3);
-}
-
-.index-header-link {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 50%;
-}
-
-.index-link {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;
-    margin-left: 80px;
-}
-
-.index-link img {
-    width: 100px;
-    height: auto;
-    margin-right: 10px;
-}
-
-.index-link h1 {
-    font-size: 1.8em;
-}
-
-.annonces-header-link {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    width: 50%;
-}
-
-.annonces-link {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;
-    margin-right: 180px;
-    font-size: 1.1rem;
-    font-weight: 600;
-}
-
-.annonces-link:hover {
-    color: #007bff;
-}
-
 /*Titre*/
 
 .container_titre{
@@ -111,6 +41,7 @@
     width: 100%;
     padding: 40px 0;
     box-shadow: 5px 6px 5px rgba(0, 0, 0, 0.3);
+    background-color: #f0f2f5;
 }
 
 .form-card {
@@ -123,6 +54,7 @@
     border: 2px solid #0000004b;
     border-radius: 25px;
     margin-top: 30px;
+    background-color: #ffffff;
 }
 
 .form-group {
@@ -280,55 +212,5 @@ button {
     background: #000000;
     transition: background 0s;
   }
-
-
-  /* Footer Section */
-footer {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background-color: black;
-    color: white;
-    margin-top: 0px;
-    bottom: 0;
-    width: 100%;
-    height: 90px;
-}
-
-.copyright {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 50%;
-}
-
-.copyright p {
-    color: #ffffff;
-    margin-left: 80px;
-}
-
-.legals {
-    text-transform: none;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    width: 50%;
-}
-
-.legals a {
-    text-decoration: none;
-    color: #ffffff;
-    margin-right: 80px;
-}
-
-footer a:hover {
-    text-decoration: underline;
-    text-decoration: none;
-    color: #007bff;
-}
 
 

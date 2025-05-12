@@ -97,7 +97,7 @@ document.getElementById('link-create-ann').addEventListener('click', async (e) =
             if (result.type === "NOT_CONNECTED") {
                 e.preventDefault(); // empêcher la navigation
                 const popup = document.getElementById('popup');
-                popup.style.display = 'block';
+                popup.style.display = 'flex';
 
                 // Fermer la popup sur clic du bouton
                 document.getElementById('closePopup').addEventListener('click', () => {

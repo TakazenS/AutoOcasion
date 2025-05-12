@@ -10,17 +10,7 @@
         <title>AUT'OCCASION - Création d'Annonce</title>
     </head>
     <body class="bg-light">
-        <header class="header-creation-compte">
-            <div class="index-header-link">
-                <a class="index-link" href="/">
-                    <img src="/public/images/logo.png" alt="logo-header">
-                    <h1>AUT'OCCASION</h1>
-                </a>
-            </div>
-            <div class="annonces-header-link">
-                <a class="annonces-link" href="/public/pages/ListeAnnonce/annonce.php">Annonces</a>
-            </div>
-        </header>
+        <?php include('../includes/header/header.php') ?>
         <div class="container">
             <h1 class="form-title">Ajouter une annonce</h1>
             <div class="form-card">
@@ -248,13 +238,7 @@
                 </form>
             </div>
         </div>
-        <footer class="footer-creation-compte">
-            <div class="copyright">
-                <p>Copyright ©2024/2025 Tout droits reservé</p>
-            </div>
-            <div class="legals">
-                <a href="/public/pages/mentionsLegales/mentionsLegales.php">Mentions légales</a>
-            </div>
+        <?php include('../includes/footer/footer.php') ?>
         <script src="/public/pages/FormulaireAnnonce/forms.js" defer></script>
     </body>
 </html>
