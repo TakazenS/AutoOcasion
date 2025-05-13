@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>AUT'OCASSION - Page d'Accueil</title>
+        <title>AUT'OCASION - Page d'Accueil</title>
         <link rel="shortcut icon" href="/public/images/logo.png" type="image/png">
         <link rel="apple-touch-icon" href="/public/images/logo.png" type="image/png">
         <link rel="stylesheet" href="/styles.css">
@@ -15,7 +15,7 @@
             <div class="container">
                 <section class="hero">
                     <div class="hero-content">
-                        <h1>Bienvenue sur AUT'OCASSION</h1>
+                        <h1>Bienvenue sur AUT'OCASION</h1>
                         <p>Vendez votre voiture en toute simplicité, entre particuliers.</p>
                         <a href="/public/pages/ListeAnnonce/annonce.php" class="cta-btn">Voir les annonces</a>
                     </div>

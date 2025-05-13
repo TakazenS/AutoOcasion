@@ -10,8 +10,6 @@
 }
 
 * {
-    margin: 0;
-    padding: 0;
     color: black;
     font-family: 'DM_Sans', 'DM_Sans_Italic';
     text-decoration: none;
@@ -19,11 +17,28 @@
 
 html, body {
     height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    height: 100%;
 }
 
-.body {
+html, body {
+    height: 100%;
+}
+
+.bg-light {
     display: flex;
     flex-direction: column;
+    height: 100%;
+}
+
+.page-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
 }
 
 h2.text-center {
@@ -332,9 +347,7 @@ h2.text-center {
 }
 
 .main-container {
-    display: flex;
-    flex-direction: column;
-    background-color: #f1f4f7;
+    flex: 1;
 }
 
 .wrapper {

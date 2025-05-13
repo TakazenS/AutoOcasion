@@ -102,25 +102,36 @@ main {
 
 /*Texte*/
 
-  .container {
+.container {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     max-width: 900px;
     margin: 0 auto;
     background-color: #ffffff;
-    padding: 30px;
+    padding: 30px 40px;
     border-radius: 15px;
     margin: 40px 0;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
-  .container h1, .container h2 {
+}
+
+.container h1, .container h2 {
     color: #000000;
-  }
-  .container p {
+}
+
+.container p {
     margin-bottom: 1em;
-  }
-  .container p strong {
+}
+
+.container p strong {
     color: #000000;
-  }
+}
+
+.container ul {
+    margin: 0 30px;
+}
+
+.container ul li {
+    list-style: '-   ';
+}
 
 

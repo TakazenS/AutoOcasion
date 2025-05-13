@@ -16,63 +16,62 @@
                 <h1>Mentions légales</h1>
                 <h2>Éditeur du site</h2>
                 <p>
-                    Le présent site est édité par la société <strong>Aut'Occasion</strong>, entreprise spécialisée dans la mise en relation entre particuliers pour la vente de véhicules.<br>
+                    Le présent site est édité par la société <strong>Aut'Occasion</strong>, entreprise spécialisée dans la <strong>mise en relation entre particuliers</strong> pour la vente de véhicules.<br><br>
                     <strong>Dénomination sociale</strong> : Aut'Occasion<br>
                     <strong>Forme juridique</strong> : Société par actions simplifiée (SAS) au capital de 50 000 €<br>
-                    <strong>Adresse du siège social</strong> : 10 avenue de la République, 75011 Paris, France<br>
-                    <strong>Téléphone</strong> : +33 1 84 80 07 55<br>
+                    <strong>Téléphone</strong> : [Tel]<br>
                     <strong>Email</strong> : contact@autoccasion.fr<br>
-                    <strong>Numéro SIRET</strong> : 843 212 345 00029<br>
-                    <strong>RCS</strong> : Paris B 402 123 456<br>
-                    <strong>Directeur de la publication</strong> : Mr Porignaux Baptiste (Président)
+                    <strong>Numéro SIRET</strong> : [Siret]<br>
+                    <strong>RCS</strong> : [Rcs]<br>
                 </p>
                 <h2>Hébergeur du site</h2>
                 <p>
-                    <strong>OVHcloud SAS</strong><br>
-                    Adresse : 2 rue Kellermann, 59100 Roubaix, France<br>
-                    Téléphone : +33 9 72 10 10 07<br>
-                    Site web : <a href="https://www.ovh.com" target="_blank">www.ovh.com</a>
+                    <strong>Docker Desktop</strong><br>
+                    Adresse : [Adresse]<br>
+                    Téléphone : [Tel]<br>
                 </p>
                 <h2>Activité du site</h2>
                 <p>
                     Aut'Occasion propose une <strong>plateforme de mise en relation</strong> entre particuliers souhaitant vendre ou acheter un véhicule d’occasion.
-                    Les utilisateurs peuvent publier des annonces comprenant photos, descriptions et prix, après validation par l’équipe de modération.
-                </p>
+                    Les utilisateurs peuvent publier des annonces comprenant <strong>de nombreux détails</strong> sur le véhicule concerné.
                 <p>
-                    <strong>Aut'Occasion n'intervient pas dans les transactions</strong> et ne prend aucune commission sur les ventes. La plateforme agit uniquement en tant qu’intermédiaire technique, nya~!
+                    <strong>Aut'Occasion n'intervient pas dans les transactions</strong> et ne prend <strong> aucune commission sur les ventes</strong>. La plateforme agit uniquement en tant qu’intermédiaire.
                 </p>
                 <h2>Responsabilité</h2>
                 <p>
-                    Aut'Occasion s’efforce d’assurer la fiabilité et l’exactitude des informations publiées sur le site, mais ne saurait être tenue responsable :
+                    Aut'Occasion s’efforce d’assurer <strong>la fiabilité et l’exactitude des informations publiées</strong> sur le site, mais ne saurait être tenue responsable :
                 </p>
                 <ul>
-                    <li>du contenu des annonces postées par les utilisateurs,</li>
-                    <li>des erreurs, omissions ou inexactitudes dans les annonces,</li>
-                    <li>des transactions conclues entre utilisateurs via la plateforme.</li>
+                    <li>Du <strong>contenu</strong> des annonces postées par <strong>les utilisateurs</strong>.</li>
+                    <li>Des <strong>erreurs, omissions ou inexactitudes</strong> dans les annonces.</li>
+                    <li>Des <strong>transactions</strong> conclues <strong>entre utilisateurs</strong> via la plateforme.</li>
                 </ul>
+                <br>
                 <h2>Propriété intellectuelle</h2>
                 <p>
-                    L’ensemble des éléments présents sur le site (textes, images, logos, interface, etc.) est protégé par le droit de la propriété intellectuelle.
-                    Toute reproduction ou utilisation sans autorisation préalable est strictement interdite.
+                    L’ensemble des éléments présents sur le site <strong>(textes, images, logos, interface, etc...)</strong> est protégé par <strong>le droit de la propriété intellectuelle</strong>.
+                    Toute <strong>reproduction ou utilisation sans autorisation</strong> préalable est strictement interdite.
                 </p>
                 <h2>Données personnelles</h2>
                 <p>
-                    Aut'Occasion collecte et traite certaines données personnelles dans le cadre de son activité.
-                    Conformément à la loi <strong>Informatique et Libertés</strong> et au <strong>RGPD</strong>, vous disposez d’un droit d’accès, de rectification, de suppression et d’opposition concernant vos données.
+                    Aut'Occasion <strong>collecte</strong> et <strong>traite</strong> certaines données personnelles dans le cadre de son activité.
+                    Conformément à <strong>la loi Informatique et Libertés</strong> et au <strong>RGPD</strong>, vous disposez d’un droit d’accès, de rectification, de suppression et d’opposition concernant vos données.
                 </p>
                 <p>
-                    Pour exercer ces droits, vous pouvez contacter :<br>
-                    <strong>Email RGPD</strong> : rgpd@autoccasion.fr<br>
-                    <strong>Adresse postale</strong> : 10 avenue de la République, 75011 Paris, France
+                    <strong>Pour exercer ces droits, vous pouvez contacter :</strong><br>
+                    <ul>
+                        <li><strong>Email</strong> : contact@autoccasion.fr<br></li>
+                        <li><strong>Adresse postale</strong> : [Adresse]</li>
+                    </ul>
                 </p>
                 <h2>Cookies</h2>
                 <p>
-                    Le site peut être amené à déposer des cookies pour améliorer l’expérience utilisateur et analyser la fréquentation.
-                    Vous pouvez configurer vos préférences via votre navigateur ou notre gestionnaire de cookies.
+                    Le site peut être amené <strong>à déposer des cookies</strong> pour <strong>améliorer l’expérience utilisateur</strong> et analyser la fréquentation.
+                    Vous pouvez <strong>configurer vos préférences via votre navigateur</strong>.
                 </p>
                 <h2>Loi applicable</h2>
                 <p>
-                    Le présent site est soumis à la législation française. Tout litige relatif à son utilisation sera soumis à la compétence des juridictions françaises.
+                    Le présent site est soumis à <strong>la législation française</strong>. Tout litige relatif à son utilisation sera soumis à <strong>la compétence des juridictions françaises</strong>.
                 </p>
             </div>
         </main>
