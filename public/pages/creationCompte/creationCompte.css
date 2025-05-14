@@ -200,3 +200,7 @@ html, body {
     user-select: none;
 }
 
+.defaultImg {
+    display: none;
+}
+

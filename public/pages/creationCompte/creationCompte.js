@@ -127,20 +127,50 @@ document.getElementById('button-send').addEventListener('click', async (e) => {
             })
         });
 
-        const file = await fetch('http://localhost:3000/images/profile/default.png')
-        const pseudo_profile = '' + prenom_uti + nom_uti;
+        if (response.ok) {
+            console.log('Création du compte réussi !');
+        } else {
+            const errorTxt = await response.text();
+            console.log(errorTxt);
+        }
+    
+    } catch (err) {
+        console.error("Erreur lors de la requête :", err);
+        console.log("Erreur réseau ou serveur.");
+    }
+    
 
-        const formData = new FormData();
-        formData.append('pseudo_uti', pseudo_profile);
-        formData.append('photo_profile', file);
+    const response = await fetch('http://localhost:3000/get-code-uti', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ mail_uti })
+    })
 
+    const resData = await response.json();
+    const code_uti = resData.code_uti;
+    console.log(code_uti);
+
+    const pseudo_profile = '' + prenom_uti + nom_uti;
+    const photo = document.getElementById('defaultImg');
+    const photoUrl = photo.src;
+
+    const photoFetched = await fetch(photoUrl);
+    const photo_profile = await photoFetched.blob();
+
+    const formData = new FormData();
+    const fileName = 'default.png'
+    formData.append('photo_profile', photo_profile, fileName);
+    formData.append('pseudo_profile', pseudo_profile);
+    formData.append('code_uti', code_uti);
+    
+    try {
         const upload = await fetch('http://localhost:3000/add-profile', {
             method: 'POST',
             body: formData
         })
 
-        if (upload.ok && response.ok) {
-            console.log('Création du compte réussie !');
+        if (upload.ok) {
+            console.log('Création du profil réussi !');
             window.location.href = '/public/pages/connexion/connexion.php';
         } else {
             const errorUpload = await upload.text();

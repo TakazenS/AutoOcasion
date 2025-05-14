@@ -51,6 +51,7 @@
             </div>
         </section>
         <?php include('../includes/footer/footer.php') ?>
+        <img class="defaultImg" id="defaultImg" src="/public/images/profile/default.png" alt="default">
         <script src="/public/pages/creationCompte/creationCompte.js"></script>
     </body>
 </html>

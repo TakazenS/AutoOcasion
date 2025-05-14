@@ -5,6 +5,7 @@ const session = require("express-session");
 const bcrypt = require("bcryptjs");
 const bodyParser = require('body-parser');
 const fileUpload = require('express-fileupload');
+const path = require('path')
 require("dotenv").config();
 
 // Initialisation du serveur Node.js et récupération du front-end
@@ -14,7 +15,7 @@ app.use(cors({
     credentials: true
 }));
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Middleware pour traiter les données JSON
 app.use(bodyParser.json());
@@ -94,20 +95,20 @@ app.post('/create-uti', (req, res) => {
 });
 
 app.post("/add-profile", (req, res) => {
+    if (!req.files || !req.files.photo_profile) {
+        return res.status(400).send('Aucune image reçue.');
+    }
+
+    const photo = req.files.photo_profile;
+    const photo_profile = photo.data;
     const pseudo_profile = req.body.pseudo_profile;
-    const photo_default = req.body.photo_default;
+    const code_uti = req.body.code_uti;
 
-    photo_default = photo_default.data;
-
-    connection.query(
-        'INSERT INTO PROFILE (pseudo_profile, photo_profile) VALUES (?, ?)',
-    [
-        pseudo_uti, photo_profile
-    ],
-    (err) => {
+    const request = 'INSERT INTO PROFILE (pseudo_profile, photo_profile, code_uti) VALUES (?, ?, ?)';
+    connection.query(request, [pseudo_profile, photo_profile, code_uti], (err, result) => {
         if (err) {
-            console.error("Erreur lors de l\'insertion de l'utilisateur dans la base de données :", err);
-            return res.status(500).send('Erreur interne du serveur !');
+            console.error("Erreur lors de l\'insertion du profil dans la base de données :", err);
+            return res.status(500).send('Erreur serveur ! !');
         }
         res.send('Profil ajouté avec succès !');
     });
@@ -136,6 +137,22 @@ app.post("/login", (req, res) => {
         });
     });
 });
+
+app.post('/get-code-uti', (req, res) => {
+    const { mail_uti } = req.body;
+    const request = 'SELECT code_uti FROM UTILISATEUR where mail_uti = ?;';
+    connection.query(request, [mail_uti], (err, result) => {
+        if (err) return res.status(500).send("Erreur serveur");
+        
+        if (result.length === 0) {
+            return res.status(401).json({ error: "Email invalide", type: "EMAIL_NOT_FOUND" });
+        }
+
+        const code_uti = result[0].code_uti;
+        res.json({ code_uti })
+
+    })
+})
 
 app.get('/get-user-role', (req, res) => {
     if (!req.session.user) {
