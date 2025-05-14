@@ -14,6 +14,7 @@ app.use(cors({
     credentials: true
 }));
 app.use(express.json());
+app.use(express.static('public'));
 
 // Middleware pour traiter les données JSON
 app.use(bodyParser.json());
@@ -89,6 +90,26 @@ app.post('/create-uti', (req, res) => {
                 res.send('Utilisateur ajouté avec succès !');
             }
         );
+    });
+});
+
+app.post("/add-profile", (req, res) => {
+    const pseudo_profile = req.body.pseudo_profile;
+    const photo_default = req.body.photo_default;
+
+    photo_default = photo_default.data;
+
+    connection.query(
+        'INSERT INTO PROFILE (pseudo_profile, photo_profile) VALUES (?, ?)',
+    [
+        pseudo_uti, photo_profile
+    ],
+    (err) => {
+        if (err) {
+            console.error("Erreur lors de l\'insertion de l'utilisateur dans la base de données :", err);
+            return res.status(500).send('Erreur interne du serveur !');
+        }
+        res.send('Profil ajouté avec succès !');
     });
 });
 

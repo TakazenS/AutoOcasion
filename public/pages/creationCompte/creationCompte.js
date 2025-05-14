@@ -4,88 +4,53 @@ function isValidEmail(email) {
     return regex.test(email);
 }
 
-// Vérifie la connexion au chargement du DOM
-window.addEventListener('DOMContentLoaded', async () => {
-    try {
-        const authRes = await fetch('http://localhost:3000/check-auth', {
-            method: 'GET',
-            credentials: 'include'
+// Vérifie l'entrée pour les mdp
+function isValidPwd(pwd) {
+    const regexVerifPwd = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/;
+    return regexVerifPwd.test(pwd);
+}
+
+// Vérification du premier mdp
+const passwordInput = document.getElementById('password');
+    ['copy', 'paste', 'cut'].forEach(eventType => {
+        passwordInput.addEventListener(eventType, (e) => {
+            e.preventDefault();
         });
+});
 
-        const isConnected = authRes.ok;
-
-        const roleRes = await fetch('http://localhost:3000/get-user-role', {
-            method: 'GET',
-            credentials: 'include'
+// Vérification du deuxième mdp
+const passwordVerifInput = document.getElementById('confirm-password');
+    ['copy', 'paste', 'cut'].forEach(eventType => {
+        passwordVerifInput.addEventListener(eventType, (e) => {
+            e.preventDefault();
         });
+});
 
-        const roleData = roleRes.ok ? await roleRes.json() : { isAdmin: false };
+// Import des éléments pour afficher/cacher le mdp
+const passwordInputEye = document.getElementById('password');
+const eye1 = document.getElementById('eye1');
+const passwordInputVerifEye = document.getElementById('confirm-password');
+const eye2 = document.getElementById('eye2');
 
-        // Logique d'affichage unique
-        if (!isConnected) {
-            // Non connecté : montrer uniquement le bouton connexion
-            document.getElementById('dashboard-btn-id').style.display = "none";
-            document.getElementById('deco-btn-id').style.display = "none";
-            document.getElementById('connexion-btn-id').style.display = "flex";
-        } else if (roleData.isAdmin) {
-            // Admin connecté
-            document.getElementById('connexion-btn-id').style.display = "none";
-            document.getElementById('deco-btn-id').style.display = "flex";
-            document.getElementById('dashboard-btn-id').style.display = "flex";
-        } else {
-            // Utilisateur connecté mais pas admin
-            document.getElementById('dashboard-btn-id').style.display = "none";
-            document.getElementById('connexion-btn-id').style.display = "none";
-            document.getElementById('deco-btn-id').style.display = "flex";
-        }
-
-    } catch (err) {
-        console.error("Erreur de session ou de rôle :", err);
+// Affiche/cache le mdp du premier champ
+eye1.addEventListener('click', () => {
+    if (passwordInputEye.type === 'text') {
+        passwordInputEye.type = 'password';
+        eye1.src = '/public/images/password/closedEye.png';
+    } else {
+        passwordInputEye.type = 'text';
+        eye1.src = '/public/images/password/openedEye.png';
     }
 });
 
-// Vérifie si l'on est bien administrateur
-document.getElementById('dashboard-btn-id').addEventListener('click', async () => {
-    try {
-        const res = await fetch('http://localhost:3000/get-user-role', {
-            method: 'GET',
-            credentials: 'include' // Inclut les cookies pour vérifier la session
-        });
-
-        if (res.ok) {
-            const roleData = await res.json();
-            if (roleData.isAdmin) {
-                window.location.href = '/public/pages/admin/admin.php';
-            } else {
-                window.location.href = '/index.php';
-                return window.alert('Vous nêtes pas administrateur !')
-            }
-        } else {
-                window.location.href = '/index.php';
-                return window.alert("Vous n'êtes pas administrateur !");
-        }
-    } catch (error) {
-        console.error("Erreur lors de la vérification du rôle utilisateur :", err);
-    }
-});
-
-// Déconnection
-document.getElementById('deco-btn-id').addEventListener('click', async (e) => {
-    e.preventDefault(); // empêche le lien de rediriger immédiatement
-
-    try {
-        const res = await fetch('http://localhost:3000/logout', {
-            method: 'GET',
-            credentials: 'include'
-        });
-
-        if (res.ok) {
-            window.location.href = '/index.php'; // Redirige après déconnexion
-        } else {
-            console.error('Erreur lors de la déconnexion');
-        }
-    } catch (err) {
-        console.error('Erreur réseau pendant la déconnexion', err);
+// Affiche/cache le mdp du second champ
+eye2.addEventListener('click', () => {
+    if (passwordInputVerifEye.type === 'text') {
+        passwordInputVerifEye.type = 'password';
+        eye2.src = '/public/images/password/closedEye.png';
+    } else {
+        passwordInputVerifEye.type = 'text';
+        eye2.src = '/public/images/password/openedEye.png';
     }
 });
 
@@ -119,12 +84,23 @@ document.getElementById('button-send').addEventListener('click', async (e) => {
         return 0;
     }
     
-    if (mdp_uti.length < 8) {
+    if (mdp_uti.length < 10) {
         document.getElementById('forms-button').style.marginTop = '10px';
-        document.getElementById('mdp-incorect').innerHTML = '<p id="mdp-verif">Le mot de passe doit faire au moins 8 caractères !</p>';
+        document.getElementById('mdp-incorect').innerHTML = '<p id="mdp-verif">Le mot de passe doit faire au moins 10 caractères !</p>';
         const styleMDP = document.getElementById('mdp-incorect').style;
         styleMDP.position = 'relative';
         styleMDP.marginTop = '5px';
+        document.getElementById('mdp-verif').style.color = 'red';
+        return 0;
+    }
+
+    if (isValidPwd(mdp_uti) != true) {
+        document.getElementById('forms-button').style.marginTop = '10px';
+        document.getElementById('mdp-incorect').innerHTML = '<p id="mdp-verif" class="mdp-verif">Le mot de passe doit contenir au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial !</p>';
+        const styleMDP = document.getElementById('mdp-incorect').style;
+        styleMDP.position = 'relative';
+        styleMDP.marginTop = '5px';
+        styleMDP.width = '480px';
         document.getElementById('mdp-verif').style.color = 'red';
         return 0;
     }
@@ -150,13 +126,25 @@ document.getElementById('button-send').addEventListener('click', async (e) => {
                 mdp_uti
             })
         });
-        
-        if (response.ok) {
+
+        const file = await fetch('http://localhost:3000/images/profile/default.png')
+        const pseudo_profile = '' + prenom_uti + nom_uti;
+
+        const formData = new FormData();
+        formData.append('pseudo_uti', pseudo_profile);
+        formData.append('photo_profile', file);
+
+        const upload = await fetch('http://localhost:3000/add-profile', {
+            method: 'POST',
+            body: formData
+        })
+
+        if (upload.ok && response.ok) {
             console.log('Création du compte réussie !');
             window.location.href = '/public/pages/connexion/connexion.php';
         } else {
-            const errorText = await response.text();
-            console.log(errorText);
+            const errorUpload = await upload.text();
+            console.log(errorUpload);
         }
 
     } catch (err) {

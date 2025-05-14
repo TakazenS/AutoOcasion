@@ -184,4 +184,19 @@ html, body {
     background: #292929;
 }
 
+.input-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.eye {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    user-select: none;
+}
 

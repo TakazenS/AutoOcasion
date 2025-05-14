@@ -9,6 +9,15 @@ CREATE TABLE UTILISATEUR(
    CONSTRAINT UNIQUE_MAIL UNIQUE (mail_uti)
 );
 
+CREATE TABLE PROFILE(
+    id_profile BIGINT AUTO_INCREMENT,
+    pseudo_profile VARCHAR(30),
+    photo_profile MEDIUMBLOB,
+    code_uti BIGINT,
+    CONSTRAINT PK_PROFILE PRIMARY KEY(id_profile),
+    CONSTRAINT FK_PROFILE_UTILISATEUR FOREIGN KEY(code_uti) REFERENCES UTILISATEUR(code_uti)
+);
+
 CREATE TABLE ANNONCE(
    code_annonce BIGINT AUTO_INCREMENT,
    model_vehi VARCHAR(30) NOT NULL,
@@ -32,7 +41,11 @@ CREATE TABLE ANNONCE(
    kilometrage_vehi BIGINT,
    statut ENUM('en attente', 'validée', 'rejetée') DEFAULT 'en attente',
    adresse_mail VARCHAR (60) NOT NULL,
-   CONSTRAINT PK_ANNONCE PRIMARY KEY(code_annonce)
+   id_profile BIGINT,
+   code_uti BIGINT,
+   CONSTRAINT PK_ANNONCE PRIMARY KEY(code_annonce),
+   CONSTRAINT FK_ANNONCE_UTILISATEUR FOREIGN KEY(code_uti) REFERENCES UTILISATEUR(code_uti),
+   CONSTRAINT FK_ANNONCE_PROFILE FOREIGN KEY(id_profile) REFERENCES PROFILE(id_profile)
 );
 
 CREATE TABLE PHOTO(

@@ -82,3 +82,24 @@ document.getElementById('deco-btn-id').addEventListener('click', async (e) => {
         console.error('Erreur réseau pendant la déconnexion', err);
     }
 });
+
+// Burger Menu
+var sidenav = document.getElementById('mySidenav');
+var openBtn = document.getElementById('openBtn');
+var closeBtn = document.getElementById('closeBtn');
+
+openBtn.onclick = openNav;
+closeBtn.onclick = closeNav;
+window.addEventListener("scroll", closeScroll);
+
+function openNav() {
+    sidenav.classList.add('active');
+}
+
+function closeNav() {
+    sidenav.classList.remove('active');
+}
+
+function closeScroll() {
+    sidenav.classList.remove('active');
+}

@@ -276,3 +276,25 @@ async function totalAnnonces() {
     }
 }
 totalAnnonces(); // Appel de la fonction pour afficher le total des annonces
+
+// Burger Menu
+var sidenav = document.getElementById('mySidenav');
+var openBtn = document.getElementById('openBtn');
+var closeBtn = document.getElementById('closeBtn');
+
+openBtn.onclick = openNav;
+closeBtn.onclick = closeNav;
+window.addEventListener("scroll", closeScroll);
+
+function openNav() {
+    sidenav.classList.add('active');
+}
+
+function closeNav() {
+    sidenav.classList.remove('active');
+}
+
+function closeScroll() {
+    sidenav.classList.remove('active');
+}
+

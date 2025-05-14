@@ -40,14 +40,14 @@ header {
     margin-right: 10px;
 }
 
-.logo a {
+.logo .logo-a {
     display: flex;
     align-items: center;
     text-decoration: none;
     color: black;
 }
 
-nav {
+.nav-header {
     position: relative;
     display: flex;
     align-items: center;
@@ -55,40 +55,55 @@ nav {
     width: 50%;
 }
 
-nav a {
+.nav-header .annonce-a {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     color: black;
     text-decoration: none;
-    margin-left: 20px;
     font-size: 1.1rem;
     font-weight: 600;
+    margin-left: 20px;
 }
 
-nav a:hover {
+.nav-header .annonce-a:hover {
     color: #007bff;
 }
 
 .connexion-btn {
     display: flex;
+    text-decoration: none;
+    width: 100%;
 }
 
 .create-btn {
     display: flex;
+    text-decoration: none;
+    margin-left: 30px
+}
+
+.on-creation-account {
+    display: flex;
+    text-decoration: none;
+    margin-left: 30px
 }
 
 .dashboard-btn {
     display: flex;
+    text-decoration: none;
+    width: 100%;
 }
 
 .deco-btn {
     display: flex;
+    text-decoration: none;
+    width: 100%;
 }
 
 .link-ceate-ann {
     display: flex;
+    text-decoration: none;
 }
 
 .button-right {
@@ -98,7 +113,6 @@ nav a:hover {
 }
 
 .btn-ann {
-    margin-left: 20px;
     padding: 0;
     --color: #000000;
     font-family: inherit;
@@ -120,24 +134,36 @@ nav a:hover {
 }
 
 .dashboard-btn-ann {
-    width: 130px;
+    width: 70%;
+    margin: 10px 0;
+    left: 40px;
 }
 
 .connexion-btn-ann {
+    width: 70%;
+    margin: 5px 0;
+    left: 40px;
+}
+
+.on-creation-account-btn {
     width: 130px;
+    margin: 5px 0;
+    left: 0;
 }
 
 .create-btn-ann {
     width: 180px;
+    margin: 5px 0;
 }
 
 .deco-btn-ann {
-    width: 150px;
+    width: 70%;
+    margin: 5px 0;
+    left: 40px;
 }
 
 .btn-popup {
     width: 130px;
-    margin: 0;
 }
 
 .btn-ann:before {
@@ -168,6 +194,66 @@ nav a:hover {
 .btn-ann:active:before {
     background: #000000;
     transition: background 0s;
+}
+
+/* Hamburger Button */
+
+.sidenav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 0;
+    top: 120px;
+    right: -280px;
+    background-color: #e7e7e7;
+    padding-top: 50px;
+    transition: right 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.sidenav a:hover {
+    color: #007bff;
+}
+
+.sidenav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidenav.active {
+    right: 0;
+}
+
+.sidenav .closeBtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    padding-left: 32px;
+    padding-top: 5px;
+    text-decoration: none;
+    color: #000000;
+}
+
+.burger-icon .burger-span {
+    display: block;
+    width: 35px;
+    height: 5px;
+    background-color: #000000;
+    border-radius: 5px;
+    margin: 6px 0;
+    margin-left: 15px;
+}
+
+.openBtn {
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Footer */

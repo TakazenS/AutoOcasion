@@ -321,3 +321,24 @@ function changeSlide(direction) {
 
 // Afficher les annonces au chargement de la page lorsque la page se charge
 fetchAnnonces();
+
+// Burger Menu
+var sidenav = document.getElementById('mySidenav');
+var openBtn = document.getElementById('openBtn');
+var closeBtn = document.getElementById('closeBtn');
+
+openBtn.onclick = openNav;
+closeBtn.onclick = closeNav;
+window.addEventListener("scroll", closeScroll);
+
+function openNav() {
+    sidenav.classList.add('active');
+}
+
+function closeNav() {
+    sidenav.classList.remove('active');
+}
+
+function closeScroll() {
+    sidenav.classList.remove('active');
+}
