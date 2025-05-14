@@ -94,6 +94,7 @@ app.post('/create-uti', (req, res) => {
     });
 });
 
+// Route pour créer un profil à la création d'un compte
 app.post("/add-profile", (req, res) => {
     if (!req.files || !req.files.photo_profile) {
         return res.status(400).send('Aucune image reçue.');
@@ -138,6 +139,7 @@ app.post("/login", (req, res) => {
     });
 });
 
+// Récupère le code utilisateur en récupérant le mail_uti
 app.post('/get-code-uti', (req, res) => {
     const { mail_uti } = req.body;
     const request = 'SELECT code_uti FROM UTILISATEUR where mail_uti = ?;';
@@ -151,9 +153,27 @@ app.post('/get-code-uti', (req, res) => {
         const code_uti = result[0].code_uti;
         res.json({ code_uti })
 
-    })
-})
+    });
+});
 
+// Récupère l'id de profile en récupérant le code_uti
+app.post('/get-id-profile', (req, res) => {
+    const { code_uti } = req.body;
+    const request = 'SELECT id_profile FROM PROFILE where code_uti = ?;';
+    connection.query(request, [code_uti], (err, result) => {
+        if (err) return res.status(500).send("Erreur serveur");
+        
+        if (result.length === 0) {
+            return res.status(401).json({ error: "Email invalide", type: "EMAIL_NOT_FOUND" });
+        }
+
+        const id_profile = result[0].id_profile;
+        res.json({ id_profile })
+
+    });
+});
+
+// Récupère le role de l'utilisateur pour savoir s'il est admin ou non
 app.get('/get-user-role', (req, res) => {
     if (!req.session.user) {
         return res.status(401).json({ error: 'Utilisateur non connecté' });
