@@ -138,7 +138,6 @@ document.getElementById('button-send').addEventListener('click', async (e) => {
         console.error("Erreur lors de la requête :", err);
         console.log("Erreur réseau ou serveur.");
     }
-    
 
     const response = await fetch('http://localhost:3000/get-code-uti', {
         method: 'POST',

@@ -156,6 +156,31 @@ document.getElementById('annonceForm').addEventListener('submit', async (e) => {
         return;
     }
 
+    // Récupération du code_uti
+    const authRes = await fetch('http://localhost:3000/check-auth-code-uti', {
+      method: 'GET',
+      credentials: 'include'
+    });
+    
+    if (!authRes.ok) throw new Error('Non connecté');
+
+    const user = await authRes.json();
+    const code_uti = user.code_uti;
+
+    // Récupération de l'id_profile
+    const resProfile = await fetch('http://localhost:3000/get-id-profile', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ code_uti })
+    });
+
+    const profile = await resProfile.json();
+    const id_profile = profile.id_profile;
+
+    formData.append('id_profile', id_profile);
+    formData.append('code_uti', code_uti)
+
     // Envoi des données vers le serveur
     const response = await fetch('http://localhost:3000/add-annonce', {
         method: 'POST',

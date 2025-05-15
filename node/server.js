@@ -64,6 +64,17 @@ app.get('/check-auth', (req, res) => {
     return res.status(401).json({ error: "Non connecté", type: "NOT_CONNECTED" });
 });
 
+// Route qui vérifie si l'on est authentifié et renvoie le code_uti
+app.get('/check-auth-code-uti', (req, res) => {
+    if (req.session.user && req.session.user.code_uti) {
+        return res.json({
+            authenticated: true,
+            code_uti: req.session.user.code_uti
+        });
+    }
+    return res.status(401).json({ error: "Non connecté", type: "NOT_CONNECTED" });
+});
+
 // Route pour créer un utilisateur
 app.post('/create-uti', (req, res) => {
     const { nom_uti, prenom_uti, mail_uti, mdp_uti } = req.body;
@@ -164,7 +175,7 @@ app.post('/get-id-profile', (req, res) => {
         if (err) return res.status(500).send("Erreur serveur");
         
         if (result.length === 0) {
-            return res.status(401).json({ error: "Email invalide", type: "EMAIL_NOT_FOUND" });
+            return res.status(401).json({ error: "Code_uti invalide", type: "CODE_UTI_INV" });
         }
 
         const id_profile = result[0].id_profile;
@@ -207,7 +218,7 @@ app.post('/add-annonce', async (req, res) => {
         marque_vehi, model_vehi, boite_vitesse_vehi, carburant_vehi, prix_vehi, annee_vehi, type_permis,
         places_vehi, portes_vehi, couleur_vehi, critair_vehi, puissance_fiscale_vehi,
         puissance_din_vehi, options_vehi, description_vehi, ville_vehi, 
-        codeP_vehi, kilometrage_vehi, adresse_mail
+        codeP_vehi, kilometrage_vehi, adresse_mail, id_profile, code_uti
     } = req.body;
 
     if (!model_vehi || !prix_vehi || !description_vehi || !marque_vehi || !ville_vehi) {
@@ -226,14 +237,14 @@ app.post('/add-annonce', async (req, res) => {
             marque_vehi, model_vehi, boite_vitesse_vehi, carburant_vehi, prix_vehi, annee_vehi, type_permis,
             places_vehi, portes_vehi, couleur_vehi, critair_vehi, puissance_fiscale_vehi,
             puissance_din_vehi, options_vehi, description_vehi, ville_vehi,
-            codeP_vehi, kilometrage_vehi, adresse_mail 
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            codeP_vehi, kilometrage_vehi, adresse_mail, id_profile, code_uti
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `;
     const annonceValues = [
         marque_vehi, model_vehi, boite_vitesse_vehi, carburant_vehi, prix_vehi, annee_vehi, type_permis,
         places_vehi, portes_vehi, couleur_vehi, critair_vehi, puissance_fiscale_vehi,
         puissance_din_vehi, options_vehi, description_vehi, ville_vehi, 
-        codeP_vehi, kilometrage_vehi, adresse_mail
+        codeP_vehi, kilometrage_vehi, adresse_mail, id_profile, code_uti
     ];
 
     connection.query(insertAnnonceQuery, annonceValues, (annonceErr, annonceResults) => {
