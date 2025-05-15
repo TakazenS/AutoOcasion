@@ -1,7 +1,7 @@
 <header class="header-global">
     <div class="header-container">
         <div class="logo">
-            <a href="/index.php"><img src="/public/images/logo.png" alt="Logo AUT'OCASSION" width="100px" height="100px"><span>AUT'OCASION</span></a>
+            <a href="/index.php"><img class="img-logo-header" src="/public/images/logo.png" alt="Logo AUT'OCASSION" width="100px" height="100px"><span>AUT'OCASION</span></a>
         </div>
         <nav>
             <div id="button-right" class="button-right">

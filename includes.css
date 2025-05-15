@@ -34,7 +34,7 @@ header {
     padding: 0;
 }
 
-.logo img {
+.img-logo-header {
     width: 100px;
     height: auto;
     margin-right: 10px;
@@ -211,6 +211,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .sidenav a:hover {
@@ -225,6 +226,7 @@ header {
 
 .sidenav.active {
     right: 0;
+    box-shadow: -1px 1px 10px rgba(0, 0, 0, 0.3);
 }
 
 .sidenav .closeBtn {
@@ -246,10 +248,15 @@ header {
     border-radius: 5px;
     margin: 6px 0;
     margin-left: 15px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.burger-icon:hover .burger-span {
+    background-color: #007bff;
 }
 
 .openBtn {
-    margin-left: 15px;
+    margin-left: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -4,8 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>AUT'OCASION - Page d'Accueil</title>
-        <link rel="shortcut icon" href="/public/images/logo.png" type="image/png">
-        <link rel="apple-touch-icon" href="/public/images/logo.png" type="image/png">
+        <link rel="shortcut icon" href="/public/images/favicon/favicon.png" type="image/png">
+        <link rel="apple-touch-icon" href="/public/images/favicon/favicon.png" type="image/png">
         <link rel="stylesheet" href="/styles.css">
         <link rel="stylesheet" href="/includes.css">
     </head>

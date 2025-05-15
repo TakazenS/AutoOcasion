@@ -1,3 +1,26 @@
+// Vérification du mdp
+const passwordInput = document.getElementById('password');
+    ['copy', 'paste', 'cut'].forEach(eventType => {
+        passwordInput.addEventListener(eventType, (e) => {
+            e.preventDefault();
+        });
+});
+
+// Import des éléments pour afficher/cacher le mdp
+const passwordInputEye = document.getElementById('password');
+const eye1 = document.getElementById('eye1');
+
+// Affiche/cache le mdp du premier champ
+eye1.addEventListener('click', () => {
+    if (passwordInputEye.type === 'text') {
+        passwordInputEye.type = 'password';
+        eye1.src = '/public/images/password/closedEye.png';
+    } else {
+        passwordInputEye.type = 'text';
+        eye1.src = '/public/images/password/openedEye.png';
+    }
+});
+
 // Formulaire de connection
 document.getElementById('button-send').addEventListener('click', async (e) => {
     e.preventDefault();
@@ -30,7 +53,7 @@ document.getElementById('button-send').addEventListener('click', async (e) => {
 
         if (response.ok) {
             console.log('Connexion réussie !');
-            window.location.href = '/public/pages/ListeAnnonce/annonce.php';
+            window.location.href = '/index.php';
         } else {
             const error = await response.json();
             console.error("Erreur :", error);

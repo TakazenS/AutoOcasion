@@ -17,17 +17,17 @@ services:
     volumes:
       - ./node:/app
     depends_on:
-      - mysql
+      - db
 
-  mysql:
+  db:
     image: mysql:8
     ports:
       - "3305:3305"
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: autocasion
-      MYSQL_USER: user
-      MYSQL_PASSWORD: pass
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: p@ssw0rd
 
   adminer:
     image: adminer
