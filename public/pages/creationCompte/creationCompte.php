@@ -43,7 +43,7 @@
                                 <!--Injected with JS-->
                             </span>
                             <span class="forms-button" id="forms-button">
-                                <button class="button-send" id="button-send">Envoyer</button>
+                                <button class="button-send" id="button-send">Créer un compte</button>
                             </span>
                         </div>
                     </section>
