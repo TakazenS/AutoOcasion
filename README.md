@@ -28,7 +28,7 @@
     To run this localy you have to download <strong>Docker Desktop</strong> and <strong>Node.Js</strong> with <strong>NPM</strong>.
   </p>
   <p>
-    Do <code>npm install</code> in command line <strong>while inside the node folder</strong>, then <strong>then returns to the root folder</strong> and run            <code>docker-compose up --build</code> in command line.
+    Do <code>npm install</code> in command line <strong>while inside the node folder</strong>, then <strong>then returns to the root folder</strong> and run            <code>docker-compose up -d --build</code> in command line.
   </p>
   <h2>Authors :</h2>
   This website is developped by <strong>Tarqzz__</strong> <em>(Moine Loris)</em> and <strong>SerfioBz</strong> <em>(Porignaux Baptiste)</em>.
