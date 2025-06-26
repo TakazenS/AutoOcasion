@@ -1,0 +1,59 @@
+services:
+
+  php:
+    container_name: "autocasion-php"
+    build:
+      context: .
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - node
+    networks:
+      - autocasion
+    restart: always
+
+  node:
+    container_name: "autocasion-node"
+    build:
+      context: ./node
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysql
+    networks:
+      - autocasion
+    restart: always
+    volumes:
+      - ./node:/app
+    command: ["npm", "run", "dev"]
+
+  mysql:
+    container_name: "autocasion-mysql"
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: autocasion
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: p@ssw0rd
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - autocasion
+    restart: always
+
+  adminer:
+    container_name: "autocasion-adminer"
+    image: adminer
+    ports:
+      - "8085:8080"
+    networks:
+      - autocasion
+    restart: always
+
+volumes:
+  mysql_data:
+    
+networks:
+  autocasion: {}
